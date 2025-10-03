@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quote</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="height: 100vh;background-color:pink; font-family: cursive;">
+    <h1 class="text-center pt-5" style="color:rgb(249, 34, 69);" >Random Quote Generator</h1>
+    <div class="container  d-flex  flex-column my-5 align-items-center" style="height: 100vh;background-color:pink;">
+        <button type="button" onclick="quoteapi()" class="btn  "style="background-color:rgb(102, 189, 10);border-color:black;">Get quote</button>
+        <div id="output">
+            <!-- <div class="container border w-75 h-50 d-flex flex-column justify-content-center align-items-center bg-warning ">
+                <p></p>
+            </div> -->
+        </div>
+    </div>
+</body>
+<script>
+    
+    const quoteapi=async ()=>{
+        
+        const response= await fetch('https://dummyjson.com/quotes')
+        const result= await response.json()
+        let quote=result.quotes
+        const randomindex=(Math.floor(Math.random()*quote.length))
+        const randomquote=quote[randomindex]
+
+        document.getElementById("output").innerHTML= `
+            <div class="container border w-100 p-5 my-2 rounded d-flex flex-column justify-content-center align-items-center text-light"style="background-color:rgb(187, 66, 86);border-color:black">
+                 <p id="output">${randomquote.quote}</p>
+            </div>
+           
+        `      
+        
+        
+            
+        
+    }
+   
+       
+
+    
+</script>
+</html>
