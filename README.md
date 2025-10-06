@@ -4,5 +4,5 @@ A simple web app that displays a random quote each time you click a button. Buil
 - Displays a random quote on button click
 - Handles network errors gracefully with try/catch.<br>
 
-  --  
+  
  [Live demo](https://yamunajayakumar.github.io/randomquotegenerator/)
